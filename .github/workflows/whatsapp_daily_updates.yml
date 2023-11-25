@@ -1,0 +1,33 @@
+name: WhatsApp Daily Updates Bot
+
+on:
+  schedule:
+    - cron: '30 10 * * *'
+
+jobs:
+  send-whatsapp-message:
+    runs-on: ubuntu-latest
+
+    env:
+      WEATHER_API: ${{ secrets.WEATHER_API }}
+      LAT: ${{ secrets.LAT }}
+      LON: ${{ secrets.LON }}
+      WA_TOKEN: ${{ secrets.WA_TOKEN }}
+      WA_ID: ${{ secrets.WA_ID }}
+      OWNER_NAME: ${{ secrets.OWNER_NAME }}
+      OWNER_NUMBER: ${{ secrets.OWNER_NUMBER }}
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run WhatsApp Bot
+        run: npm start
