@@ -1,6 +1,7 @@
 name: WhatsApp Daily Updates Bot
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '30 10 * * *'
 
