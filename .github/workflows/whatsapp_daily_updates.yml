@@ -3,7 +3,7 @@ name: WhatsApp Daily Updates Bot
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 6 * * *' # 08:30 in Mozambique time (UTC+2)
+    - cron: '30 3 * * *' # 08:30 in Mozambique time (UTC+2)
 
 jobs:
   send-whatsapp-message:
